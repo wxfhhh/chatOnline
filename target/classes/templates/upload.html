@@ -1,0 +1,90 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>文件上传</title>-->
+<!--    &lt;!&ndash; 引入样式 &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="../static/plugins/element-ui/index.css" />-->
+<!--    <link rel="stylesheet" href="../static/css/my.css" />-->
+<!--</head>-->
+<!--<body>-->
+<!--<form method="post" action="/upload" enctype="multipart/form-data">-->
+<!--    <label for="inputFile" class="inputlabelBox">&ndash;&gt;-->
+<!--                <img class="img"  src='/static/images/add.png'>-->
+<!--    </label>-->
+<!--        <input name="file" type="file"  style="display: none" onchange="handleAvatarSuccess()"  id="inputFile"/>-->
+<!--        <input type="submit" value="提交"/>-->
+<!--    <img v-if="imageUrl" :src="imageUrl" class="avatar1"></img>-->
+<!--</form>-->
+
+<!--&lt;!&ndash;<div class="addBrand-container" id="food-add-app">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="container">&ndash;&gt;-->
+<!--&lt;!&ndash;        <el-upload class="avatar-uploader"&ndash;&gt;-->
+<!--&lt;!&ndash;                   action="/common/upload"&ndash;&gt;-->
+<!--&lt;!&ndash;                   :show-file-list="false"&ndash;&gt;-->
+<!--&lt;!&ndash;                   :on-success="handleAvatarSuccess"&ndash;&gt;-->
+<!--&lt;!&ndash;                   :before-upload="beforeUpload"&ndash;&gt;-->
+<!--&lt;!&ndash;                   ref="upload">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img v-if="imageUrl" :src="imageUrl" class="avatar1"></img>&ndash;&gt;-->
+<!--&lt;!&ndash;            <i v-else class="el-icon-plus avatar-uploader-icon"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;        </el-upload>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash; 开发环境版本，包含了有帮助的命令行警告 &ndash;&gt;-->
+<!--<script src="../static/plugins/vue/vue.js"></script>-->
+<!--&lt;!&ndash; 引入组件库 &ndash;&gt;-->
+<!--&lt;!&ndash;<script src="../static/plugins/element-ui/index.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash; 引入axios &ndash;&gt;-->
+<!--&lt;!&ndash;<script src="../static/plugins/axios/axios.min.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="../static/js/index.js"></script>&ndash;&gt;-->
+<!--<script>-->
+    function changeFile() {
+        let fileDom = document.getElementById('inputFile');
+        // 获取上传文件路径，可以根据这个路径判断是否满足您特殊的文件类型的限制。
+        console.log(fileDom.value); // C:\fakepath\jiayou.gif
+        if (fileDom.value.indexOf('.gif') > 0) {
+            console.log('不支持上传.gif类型的文件！');
+            return false;
+        }
+        // 获取上传文件的大小，然后进行文件大小限制的判断。
+        console.log(fileDom.files[0].size); // 获取上传文件大小，这个上传文件的大小是以字节为单位的（byte）
+        // 一般我们的需求都是以MB为单位的，所以这里需要换算一下
+        if (fileDom.files[0].size > 1 * 1024 * 1024) {
+            alert('上传文件不得超过1M！');
+            return false;
+        }
+    }
+<!--    new Vue({-->
+<!--        el: '#inputFile',-->
+<!--        data() {-->
+<!--            return {-->
+<!--                imageUrl: ''-->
+<!--            }-->
+<!--        },-->
+<!--        methods: {-->
+<!--            handleAvatarSuccess (response, file, fileList) {-->
+<!--                this.imageUrl = `/download?name=${response.data}`-->
+<!--            },-->
+<!--            beforeUpload (file) {-->
+<!--                if(file){-->
+<!--                    const suffix = file.name.split('.')[1]-->
+<!--                    const size = file.size / 1024 / 1024 < 2-->
+<!--                    if(['png','jpeg','jpg'].indexOf(suffix) < 0){-->
+<!--                        this.$message.error('上传图片只支持 png、jpeg、jpg 格式！')-->
+<!--                        this.$refs.upload.clearFiles()-->
+<!--                        return false-->
+<!--                    }-->
+<!--                    if(!size){-->
+<!--                        this.$message.error('上传文件大小不能超过 2MB!')-->
+<!--                        return false-->
+<!--                    }-->
+<!--                    return file-->
+<!--                }-->
+<!--            }-->
+<!--        }-->
+<!--    })-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->

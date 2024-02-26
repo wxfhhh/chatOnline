@@ -1,0 +1,5 @@
+cmd中执行 java -jar chatOnline-1.0-SNAPSHOT.jar 包
+不过在此之前要将数据库配置好,已提供sql文件。
+本项目sql服务的用户名密码：
+username:root
+password:8484229

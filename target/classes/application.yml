@@ -1,0 +1,43 @@
+server:
+  port: 8084
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://:3306/oicq?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 8484229
+
+#    hikari:
+#      idle-timeout: 60000
+#      maximum-pool-size: 30 #最大连接数
+#   邮件服务默认注释
+  mail:
+    host: smtp.qq.com #邮件服务器
+    username: 3248857704@qq.com
+    password: kygifowbkriwdbif
+    protocol: smtp
+    default-encoding: UTF-8
+    test-connection: true
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+mybatis-plus:
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 配置要扫描的xml文件目录，classpath* 代表所有模块的resources目录 classpath 不加星号代表当前模块下的resources目录
+    type-aliases-package: com.chatOnline.domain,com.chatOnline.domain.dto
+    mapper-locations: classpath:/mapper/*.xml
+    # 加载全局的配置文件
+#    configLocation: classpath:mybatis/mybatis-config.xml
+#    # 实体扫描，*通配符
+#    typeAliasesPackage: com.chatOnline.domain
+file:
+  path: E:\msg\
+

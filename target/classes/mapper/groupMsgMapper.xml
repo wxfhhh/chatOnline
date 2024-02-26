@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chatOnline.mapper.GroupMsgMapper">
+    <select id="getByGroupId" parameterType="java.lang.String" resultType="com.chatOnline.domain.dto.GroupMsgQuery">
+        select g.id,g.group_id,g.member_id,g.content,g.time,u.nickname as member_name,u.url as member_url
+        from group_msg g,user u
+        where g.member_id=u.id and g.group_id=#{id}
+        order by g.id asc
+    </select>
+
+
+</mapper>
